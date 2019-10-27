@@ -1,0 +1,2 @@
+include ':app', ':googleexoplayer'
+rootProject.name='Exoplayer'
