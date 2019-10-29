@@ -1,3 +1,38 @@
 <resources>
-    <string name="app_name">googleexoplayer</string>
+    <string name="cv_error_invalid_request">视频状态异常 正在审核或已被删除</string>
+    <!--<string name="cv_error_invalid_request_help_msg">正在审核或已被删除</string>-->
+    <string name="cv_error_obtain_video_address">获取视频地址失败 请重试</string>
+    <!--<string name="cv_error_obtain_video_address_help_msg">请重试或检查网络</string>-->
+    <string name="cv_error_process_fail">网络节点异常 请切换线路</string>
+    <!--<string name="cv_error_process_fail_help_msg">切换线路</string>-->
+    <string name="cv_error_local_play">离线视频播放异常</string>
+    <!--<string name="cv_error_local_play_help_msg">请重试或重新下载视频</string>-->
+    <string name="cv_video_error_unknown">出现未知错误</string>
+    <string name="cv_video_error_route">网络链路异常 请重试</string>
+    <!--<string name="cv_video_error_unknown_help">请重试或尝试重启软件</string>-->
+    <!-- -->
+    <string name="cv_chapter_finish_play">播放完成</string>
+    <string name="cv_offline_play">离线播放</string>
+    <string name="cv_goon">继续</string>
+    <string name="cv_time_place_holder">00:00</string>
+    <string name="cv_change_speed_desc">倍速切换</string>
+    <string name="cv_change_definition_desc">清晰度切换</string>
+    <string name="cv_current_video_is_playing">当前视频正在播放</string>
+    <string name="cv_is_last_in_chapter">已是本章最后一节</string>
+    <string name="cv_open">已开启</string>
+    <string name="cv_close">已关闭</string>
+    <string name="cv_has_locked">已经锁定</string>
+    <string name="cv_retry">重试</string>
+    <string name="cv_replay">重播</string>
+    <string name="cv_play_next">下一节</string>
+    <string name="cv_setting">设置</string>
+    <string name="cv_default">默认</string>
+    <string name="cv_obtain_definition_error">获取清晰度失败</string>
+    <string name="cv_notice_mobile_net_play">当前在移动网络下播放视频</string>
+    <string name="cv_check_net_work_please">无网络 请检查网络设置</string>
+    <string name="cv_try_to_play_online_video">从网络地址播放</string>
+
+    <string name="cv_no_play_role">无播放权限,需购买</string>
+    <string name="cv_buy">购买</string>
+    <string name="cv_unable_OnTouch">UNABLE_ONTOUCH</string>
 </resources>

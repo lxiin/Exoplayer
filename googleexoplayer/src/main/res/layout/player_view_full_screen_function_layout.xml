@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cc_rl_error"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cv_BackGround"
+    android:fitsSystemWindows="true"
+ >
+
+
+    <TextView
+        android:id="@+id/tv_debug_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#42ffff00"
+        tools:text="asfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdfasfasfasdf" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/space_center"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/cv_textColorGray_b5b5b5"
+        android:textSize="@dimen/cv_video_sp15"
+        tools:text="播放完成" />
+
+    <TextView
+        android:id="@+id/tv_hide_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:gravity="left"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:textAlignment="textStart"
+        android:textColor="@color/cv_TextColorGray"
+        android:textSize="12sp"
+        tools:text="code=909" />
+
+    <Space
+        android:id="@+id/space_center"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/cv_video_sp18" />
+
+    <!--android:background="@drawable/cv_selector_bg_btn_blue"-->
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/space_center"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/cv_dp20"
+            android:paddingTop="@dimen/cv_dp10"
+            android:paddingRight="@dimen/cv_dp10"
+            android:paddingBottom="@dimen/cv_space_primary"
+            android:text="重试"
+            android:textColor="@color/cv_selector_text_color2"
+            android:textSize="@dimen/cv_video_sp15" />
+
+
+        <TextView
+            android:id="@+id/btn_function2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:paddingLeft="@dimen/cv_dp10"
+            android:paddingTop="@dimen/cv_dp10"
+            android:paddingRight="@dimen/cv_dp20"
+            android:paddingBottom="@dimen/cv_space_primary"
+            android:text="取消"
+            android:textColor="@color/cv_selector_text_color2"
+            android:textSize="@dimen/cv_video_sp15" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

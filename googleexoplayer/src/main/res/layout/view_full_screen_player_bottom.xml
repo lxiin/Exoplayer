@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.googleexoplayer.view.PlayerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_alignParentBottom="true"
+    android:clipChildren="false"
+    tools:background="#f00">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@color/cv_ControlBgColor" />
+
+    <com.example.googleexoplayer.view.PlayerSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:duplicateParentState="false"
+        android:indeterminate="false"
+        android:max="100"
+        android:maxHeight="50dp"
+        android:minHeight="50dp"
+        android:progressBackgroundTint="#cc999999"
+        android:progressTint="@color/cv_blue"
+        android:secondaryProgressTint="#fff"
+        android:thumbTint="#fff"
+        app:tickMarkTint="#fff"
+        tools:progress="40" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal"
+        tools:background="#00f">
+
+
+        <com.example.googleexoplayer.view.PlayButton
+            android:id="@+id/ib_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cv_selector_ic_play" />
+
+        <com.example.googleexoplayer.view.PressImageButton
+            android:id="@+id/ib_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cv_ic_next" />
+
+
+        <TextView
+            android:id="@+id/tv_current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/cv_space_primary"
+            android:text="@string/cv_time_place_holder"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="/"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cv_time_place_holder"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_change_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="3dp"
+            android:text="倍速"
+            android:textColor="@color/cv_selector_text_color1"
+            android:textSize="@dimen/cv_video_sp16" />
+
+
+    </LinearLayout>
+
+
+</com.example.googleexoplayer.view.PlayerFrameLayout>

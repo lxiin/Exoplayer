@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    //https://exoplayer.dev/hello-world.html    
+    //https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md    exoplayer的版本号列表
+    def exoplayer_version = "2.10.1"
+    // 新版本的引入了androidx.annotation 应该是没问题的
+    api "com.google.android.exoplayer:exoplayer-core:$exoplayer_version"
+    api "com.google.android.exoplayer:exoplayer-hls:$exoplayer_version"
+    api "com.google.android.exoplayer:extension-okhttp:$exoplayer_version"
+
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/full_screen_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:fitsSystemWindows="false"
+    tools:background="@android:color/black">
+
+
+    <com.example.googleexoplayer.view.PressImageButton
+        android:id="@+id/ib_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/cv_dp40"
+        android:background="@android:color/transparent"
+
+        android:src="@drawable/cv_selector_lock"
+        android:tag="@string/cv_unable_OnTouch" />
+
+
+
+    <include layout="@layout/view_full_screen_player_view_top" />
+
+    <include layout="@layout/view_full_screen_player_bottom" />
+</RelativeLayout>

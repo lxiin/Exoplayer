@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.googleexoplayer.view.PlayerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/cv_ControlBgColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+
+    android:tag="@string/cv_unable_OnTouch"
+    tools:showIn="@layout/view_full_screen_player">
+
+
+    <com.example.googleexoplayer.view.PressImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingLeft="15dp"
+        android:paddingTop="3dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/cv_ic_back" />
+
+    <TextView
+        android:id="@+id/tv_video_title"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+
+    <com.example.googleexoplayer.view.PressImageButton
+        android:id="@+id/ib_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingLeft="7dp"
+        android:paddingTop="3dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="3dp"
+        android:rotation="90"
+        android:src="@drawable/cv_ic_menu" />
+
+    <com.example.googleexoplayer.view.PlayerVideoTopLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:alpha="0.9" />
+
+</com.example.googleexoplayer.view.PlayerLinearLayout>

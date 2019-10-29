@@ -16,6 +16,8 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.googleexoplayer.BuildConfig;
+
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -26,7 +28,7 @@ import java.util.Locale;
 public class PlayerUtil {
 
 
-    public static final String CONFIG_SP_NAME =   "player.Config";
+    public static final String CONFIG_SP_NAME = BuildConfig.APPLICATION_ID + ".Config";
 
     public static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences(CONFIG_SP_NAME, Context.MODE_PRIVATE);

@@ -16,7 +16,7 @@ public class PlayerViewActionGenerator {
         int SET_DEFINITION = 5;
         int SET_NET_LINE = 6;
         int SET_PLAYBACK_SPEED = 7;
-        int SURFCAE_CHANGE = 8;
+        int SURFACE_CHANGE = 8;
         int SEEK_START = 9;
         int RESTART = 10;
         int SET_PLAYER_OPTION_ENABLE = 11;
