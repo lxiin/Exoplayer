@@ -34,6 +34,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.googleexoplayer.popup.SmallBrightnessPopWindow;
+import com.example.googleexoplayer.popup.SmallSeekPopWindow;
+import com.example.googleexoplayer.popup.SmallVolumePopWindow;
+import com.example.googleexoplayer.popup.ToastPopupWindow;
 import com.example.googleexoplayer.util.PlayerToastUtil;
 import com.example.googleexoplayer.util.PlayerUtil;
 import com.example.googleexoplayer.view.IDispatchTouchEventView;
@@ -44,9 +48,6 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractPlayerView extends FrameLayout implements IPlayerView,View.OnClickListener,
         PlayerGestureProcessor.PlayerGestureView,PlayerFunctionLayout.OnVisibleListener{
-
-
-    private final String PLACE_HOLDER = "dsadasdas===>";
 
 
     private static final boolean DEBUG = BuildConfig.DEBUG;
@@ -399,10 +400,14 @@ public abstract class AbstractPlayerView extends FrameLayout implements IPlayerV
             return null;
         }
     }
+    private ToastPopupWindow mToastPopupWindow;
 
     @Override
     public void onShowToast(String message) {
-//        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        if (mToastPopupWindow == null) {
+            mToastPopupWindow = new ToastPopupWindow(getContext());
+        }
+        mToastPopupWindow.show(message, this);
     }
 
     @CallSuper
@@ -473,6 +478,10 @@ public abstract class AbstractPlayerView extends FrameLayout implements IPlayerV
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         getHandler().removeCallbacksAndMessages(null);
+
+        if (mToastPopupWindow != null) {
+            mToastPopupWindow.dismiss();
+        }
     }
 
     @Override
@@ -676,21 +685,28 @@ public abstract class AbstractPlayerView extends FrameLayout implements IPlayerV
 
     }
 
+    SmallBrightnessPopWindow mBrightnessPopupWindow = null;
+    SmallSeekPopWindow mSeekingPopupWindow = null;
+    SmallVolumePopWindow mVolumePopupWindow = null;
+
     @Override
     public void onGSStartChangeVolume() {
-        Log.e(PLACE_HOLDER,"显示音量调节");
+        mVolumePopupWindow = new SmallVolumePopWindow(getContext());
+        mVolumePopupWindow.show(this);
     }
+
+
 
     @Override
     public void onGSShowVolumeChange(float precent) {
-        Log.e(PLACE_HOLDER,"设置当前音量");
+        mVolumePopupWindow.setPrecent((int) precent);
 
     }
 
     @Override
     public void onGSFinishVolumeChange() {
-        Log.e(PLACE_HOLDER,"隐藏音量调节");
-
+        mVolumePopupWindow.dismiss();
+        mVolumePopupWindow = null;
     }
 
     @Override
@@ -723,19 +739,20 @@ public abstract class AbstractPlayerView extends FrameLayout implements IPlayerV
 
     @Override
     public void onGSStartChangeBrightness() {
-        Log.e(PLACE_HOLDER,"显示调整亮度");
+        mBrightnessPopupWindow = new SmallBrightnessPopWindow(getContext());
+        mBrightnessPopupWindow.show(this);
     }
 
     @Override
     public void onGSShowBrightnessView(int precent) {
-        Log.e(PLACE_HOLDER,"亮度进度");
+        mBrightnessPopupWindow.setPrecent(precent);
 
     }
 
     @Override
     public void onGSHideBrightnessView() {
-        Log.e(PLACE_HOLDER,"隐藏亮度");
-
+        mBrightnessPopupWindow.dismiss();
+        mBrightnessPopupWindow = null;
     }
 
     @Override
@@ -745,19 +762,34 @@ public abstract class AbstractPlayerView extends FrameLayout implements IPlayerV
 
     @Override
     public void onGSStartSeek() {
-        Log.e(PLACE_HOLDER,"调整进度");
-
+        setSeekingProgress(true);
+        mSeekingPopupWindow = new SmallSeekPopWindow(getContext());
+        mSeekingPopupWindow.show(this);
+        if (getIPlayerViewActionGenerator() != null) {
+            getIPlayerViewActionGenerator().startSeek();
+        }
+        hideControllerViewDelay();
     }
 
     @Override
     public void onGSSeekChange(@Nullable SeekInfo seekInfo) {
-        Log.e(PLACE_HOLDER,"调整进度");
-
+        if (seekInfo != null) {
+            showProgress(seekInfo.seekingPosition, seekInfo.duration);
+            mSeekingPopupWindow.setProgress(seekInfo.duration, seekInfo.seekingPosition);
+        }
+        hideControllerViewDelay();
     }
 
     @Override
     public void onGSFinishSeek(@Nullable SeekInfo seekInfo) {
-        Log.e(PLACE_HOLDER,"调整进度");
+        setSeekingProgress(false);
+        //网络视频在停下来的时候seek,本地视频，即时seek
+        if (seekInfo != null && getIPlayerViewActionGenerator() != null) {
+            getIPlayerViewActionGenerator().seek(seekInfo.seekingPosition);
+        }
+        mSeekingPopupWindow.dismiss();
+        hideControllerViewDelay();
+
 
     }
 

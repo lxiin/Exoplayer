@@ -12,12 +12,15 @@ import android.view.ViewPropertyAnimator;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.googleexoplayer.popup.PlayerChangeSpeedPopupWindow;
+import com.example.googleexoplayer.popup.PlayerRightPopupWindow;
 import com.example.googleexoplayer.util.PlayerUtil;
 import com.example.googleexoplayer.view.PlayButton;
 
@@ -180,6 +183,52 @@ public class FullScreenPlayerView extends AbstractPlayerView {
         setDoubleClickEventEnable(enableGesture);
     }
 
+
+    @Override
+    public void onAttachToPlayer(final PlayerContext playerContext) {
+        super.onAttachToPlayer(playerContext);
+//倍速选择
+        //用poupwindow 而不用dialog,是因为dialog 会获得焦点，从而弹出导航栏
+        mTvSpeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayerChangeSpeedPopupWindow popupWindow = new PlayerChangeSpeedPopupWindow(getContext());
+                popupWindow.setOnSpeedChangeListener(new PlayerChangeSpeedPopupWindow.OnSpeedChangeListener() {
+                    @Override
+                    public void onSpeedChange(float speed) {
+                        playerContext.getPlayerViewActionGenerator().setPlaybackSpeed(speed);
+
+                    }
+                });
+                showPopupWindow(popupWindow);
+
+
+            }
+        });
+    }
+
+    void showPopupWindow(final PlayerRightPopupWindow popupWindow) {
+        final IOnBackPress iOnBackPress = new IOnBackPress() {
+            @Override
+            public boolean onBackPress() {
+                if (popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                    return true;
+                }
+                return false;
+            }
+        };
+        getOnBackPressCallBackList().add(iOnBackPress);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                getOnBackPressCallBackList().remove(iOnBackPress);
+
+            }
+        });
+        popupWindow.showInParentRight(this);
+        setControllerViewVisible(false);
+    }
 
 
     @Override

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="cv_Anim_popupWindow" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/cv_popup_window_in</item>
+        <item name="android:windowExitAnimation">@anim/cv_popup_window_out</item>
+    </style>
+
+</resources>

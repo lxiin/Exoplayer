@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:layout_marginBottom="@dimen/cv_dp8"
+              android:layout_marginTop="@dimen/cv_dp8"
+              android:background="@android:color/transparent"
+              android:gravity="center"
+              android:minHeight="40dp"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/cc_tv_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/cv_selector_item_speed_dialog"
+        android:gravity="center"
+        android:textColor="@color/cv_selector_text_color1"
+        android:textSize="@dimen/cv_video_sp18"/>
+</LinearLayout>

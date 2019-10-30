@@ -14,7 +14,7 @@ public class App extends Application {
     //http://v.dezhi.com/content/m3u8/5db8148f1a7af.m3u8
 //    http://hls.videocc.net/2aad30cbba/2/2aad30cbbad1caf6229d532489ece238_2.m3u8
     static {
-        PLAYER_INFOS.add(new PlayInfo("11","测试视频","http://v.dezhi.com/content/m3u8/5db8148f1a7af.m3u8"));
+        PLAYER_INFOS.add(new PlayInfo("11","测试视频","http://hls.videocc.net/2aad30cbba/2/2aad30cbbad1caf6229d532489ece238_1.m3u8"));
     }
 
 

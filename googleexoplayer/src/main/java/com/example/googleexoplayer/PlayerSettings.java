@@ -42,4 +42,19 @@ public class PlayerSettings {
         return getSharedPreferences(context)
                 .getFloat(PLAYBACK_SPEED, 1.0f);
     }
+
+
+    /**
+     * 获取倍速
+     *
+     * @param context
+     * @param speed
+     */
+    public static void setPlayBackSpeed(Context context, float speed) {
+        getSharedPreferences(context)
+                .edit()
+                .putFloat(PLAYBACK_SPEED, speed)
+                .apply();
+    }
+
 }

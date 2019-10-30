@@ -39,5 +39,6 @@ dependencies {
     api "com.google.android.exoplayer:exoplayer-core:$exoplayer_version"
     api "com.google.android.exoplayer:exoplayer-hls:$exoplayer_version"
     api "com.google.android.exoplayer:extension-okhttp:$exoplayer_version"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }
